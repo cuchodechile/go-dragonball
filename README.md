@@ -66,6 +66,8 @@ curl -X POST http://localhost:8080/characters \
 
 # 5. Revisar 
 docker compose logs -f go-dragonball
+# o sacar datos de redis
+docker exec -it op-redis redis-cli --scan
 ```
 
 ```mermaid
@@ -91,6 +93,5 @@ flowchart TD
     class G ext;
 ```
 
-# o sacar datos de redis
-docker exec -it op-redis redis-cli --scan
+
 
