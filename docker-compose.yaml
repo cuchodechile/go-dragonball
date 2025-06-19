@@ -1,0 +1,17 @@
+services:
+
+  op-redis:
+    container_name: op-redis
+    image: redis
+    ports:
+      - 6379:6379
+    command: redis-server  --port 6379 
+
+  go-dragonball:
+    build: ./src
+    depends_on:
+      - op-redis
+    environment:
+      - REDIS_ADDR=op-redis:6379
+    ports:
+      - "8080:8080"
