@@ -43,8 +43,8 @@ El proyecto sigue un mix **arquitectura Clean / Hexagonal**:
 
 ## Requisitos
 
-* **Docker 20+** y **docker-compose v2** (ya en Docker Desktop)
-* (opcional) **Go 1.22** si quieres correr sin Docker
+* **Docker 20+** y **docker-compose v2** (probado en Docker Desktop)
+* (opcional) **Go 1.24** si quieres correr sin Docker
 
 ---
 
