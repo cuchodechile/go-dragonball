@@ -9,20 +9,7 @@ Cuando llega un nombre de personaje:
 
 El proyecto sigue un mix **arquitectura Clean / Hexagonal**:
 
-
-┌──────────────┐
-│  Handler     │  ← capa transporte (Gin – HTTP REST)
-└──────┬───────┘
-       │ DTOs
-┌──────▼───────┐
-│  Service     │  ← lógica de negocio (caso de uso)
-└──────┬───────┘
-       │ puertos (interfaces)
-┌──────▼────────────┐       ┌────────────────────┐
-│ CharacterRepo     │◄─────▶│ RedisRepository    │
-│ (abstracción)     │       └────────────────────┘
-│ ExternalClient    │◄─────▶│ HTTP DragonBall API│
-└───────────────────┘       └────────────────────┘
+![image](https://github.com/user-attachments/assets/1d8b2a4b-e9c2-4bd1-9f4f-a223dba59b82)
 
 
 ---
