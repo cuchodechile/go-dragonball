@@ -66,6 +66,30 @@ curl -X POST http://localhost:8080/characters \
 
 # 5. Revisar 
 docker compose logs -f go-dragonball
+```
+
+```mermaid
+flowchart TD
+    A[Cliente HTTP] -->|JSON name=Goku| B(Handler Gin)
+    B --> C[CharacterService FindOrCreate]
+    
+    C --> D{RepositoryRedis - FindByName}
+    D -- hit --> E[(Devuelve personaje)]
+    E --> F[Handler; 200 JSON]
+
+    D -- miss --> G[ExternalClient DragonBall API]
+    G -->|Personaje| H[Repository Save]
+    H --> I[(Devuelve personaje)]
+    I --> F
+
+    classDef data fill:#c0e6ff,stroke:#036;
+    classDef logic fill:#dfe,stroke:#080;
+    classDef ext fill:#ffe1e1,stroke:#b00;
+
+    class D,H data;
+    class C logic;
+    class G ext;
+```
 
 # o sacar datos de redis
 docker exec -it op-redis redis-cli --scan
